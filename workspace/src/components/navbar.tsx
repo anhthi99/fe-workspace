@@ -9,14 +9,14 @@ export default function NavBar(){
     const handleClick = (e : any) => {
         setKey(e.key);
         history.push(`/${e.key}`);
-
-        
     }
 
         return(
             <Menu onClick={handleClick} selectedKeys={[key]} mode='horizontal' theme='dark'>
-                {MENU.map(e => <Menu.Item key={e.key} icon={e.icon}>
-                    {e.title}</Menu.Item>
+                {MENU.map(e => 
+                <Menu.Item key={e.key} icon={e.icon}>
+                    {e.title}
+                </Menu.Item>
                    )
                 }
             </Menu>

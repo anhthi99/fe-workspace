@@ -1,4 +1,3 @@
-//export const MENU = ['Trang chủ', 'Dự án', 'Vấn đề', 'Thông báo', 'Wiki', 'Giúp đỡ'];
 import { BookFilled, BulbFilled, HomeFilled, NotificationFilled, ProjectFilled } from "@ant-design/icons"
 
 export const MENU = [
