@@ -1,27 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import 'antd/dist/antd.css';
+import MyEditor from './screens/editor'
+import NavBar from './components/navbar';
+import Project from './screens/project';
+import TestS from './screens/test';
+import ProtectedRoute, { ProtectedRouteProps } from './app.route';
+import Login from './screens/login';
+import { NotFound } from './screens/404';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        Sửa link  
-        </a>
-        <a href="https://google.com">Google</a>
-      </header>
-    </div>
-  );
+
+interface IProps{
+  text? : string | null,
 }
 
-export default App;
+interface IState{
+  date?: string | null,
+}
+
+export default class App extends React.Component<IProps,IState> {
+  constructor(props :IProps) {
+    super(props);
+
+    this.state = {
+      date : ''
+    }
+  }
+
+
+  render(){
+    const defaultProtectedProps : ProtectedRouteProps = { authenPath : '/', isAuth: false}
+    return (
+     <Router>
+       <NavBar />
+       <Switch>
+         <Route path='/' exact component={Login} />
+         <Route path='/project' component={Project} />
+         <Route path='/test' component={TestS} />
+         <Route path='/editor/:id' component={MyEditor}/>
+         {/* <ProtectedRoute {...defaultProtectedProps} path = '/' component={Project} /> */}
+         <Route path='*' component={NotFound} />
+       </Switch> 
+     </Router>
+    )
+    
+  }
+}
