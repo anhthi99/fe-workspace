@@ -1,7 +1,6 @@
 import React from 'react';
-import { Col, Progress, Row, Button } from 'antd';
-import ApiService from '../services/api';
-import { API_URL } from '../constants/api';
+import ApiService from '../services/api.service';
+import {API_URL} from '../constants/api'
 
 interface IProps{
 
@@ -20,24 +19,9 @@ export default class Home extends React.Component<{}, IState>{
     }
 
     componentDidMount(){
-        this.xx.get(API_URL.HOME.ADDRESS).subscribe(res => {
+        this.xx.get(API_URL.HOME.TEMP).subscribe(res => {
             console.log(res);
         })
-    }
-
-    handleClick = () => {
-        var rdNum = Math.round(Math.random());
-        if(rdNum == 0)
-        {
-            this.setState({
-                value : this.state.value-10
-            })
-        }
-        else{
-            this.setState({
-                value : this.state.value+20
-            })
-        }
     }
 
     render(){
