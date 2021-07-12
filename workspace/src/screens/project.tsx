@@ -17,38 +17,38 @@ interface IState extends TablePaginationConfig {
   text: string;
   data: any[];
 }
-const columns = [
-  {
-    title: "Tên dự án",
-    dataIndex: "name",
-    key: "name",
-  },
-  {
-    title: "Loại",
-    dataIndex: "p_type",
-    key: "p_type",
-  },
-  {
-    title: "Thời gian dự kiến",
-    dataIndex: "plan_time",
-    key: "plan_time",
-  },
-  {
-    title: "Tổng thời gian",
-    dataIndex: "total_time",
-    key: "total_time",
-  },
-  {
-    title: "Ngày tạo",
-    dataIndex: "createdAt",
-    key: "createdAt",
-  },
-  {
-    title: "Cập nhật lần cuối",
-    dataIndex: "updatedAt",
-    key: "updatedAt",
-  },
-];
+// const columns = [
+//   {
+//     title: "Tên dự án",
+//     dataIndex: "name",
+//     key: "name",
+//   },
+//   {
+//     title: "Loại",
+//     dataIndex: "p_type",
+//     key: "p_type",
+//   },
+//   {
+//     title: "Thời gian dự kiến",
+//     dataIndex: "plan_time",
+//     key: "plan_time",
+//   },
+//   {
+//     title: "Tổng thời gian",
+//     dataIndex: "total_time",
+//     key: "total_time",
+//   },
+//   {
+//     title: "Ngày tạo",
+//     dataIndex: "createdAt",
+//     key: "createdAt",
+//   },
+//   {
+//     title: "Cập nhật lần cuối",
+//     dataIndex: "updatedAt",
+//     key: "updatedAt",
+//   },
+// ];
 
 export default class Project extends React.Component<IProps, IState> {
   private service = new ApiService();
@@ -108,15 +108,18 @@ export default class Project extends React.Component<IProps, IState> {
       total: this.state.total,
     };
     return (
-      <Table
-        columns={columns}
-        dataSource={this.state.data}
-        rowKey={(record) => record._id}
-        loading={this.state.loading}
-        onChange={this.changeHandle}
-        pagination={pagination}
-        bordered={true}
-      />
+      <>
+        <p>This is project</p>
+      </>
+      // <Table
+      //   columns={columns}
+      //   dataSource={this.state.data}
+      //   rowKey={(record) => record._id}
+      //   loading={this.state.loading}
+      //   onChange={this.changeHandle}
+      //   pagination={pagination}
+      //   bordered={true}
+      // />
     );
   }
 }

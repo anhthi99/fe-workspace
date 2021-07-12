@@ -3,11 +3,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CookiesProvider } from 'react-cookie';
+import {createStore}  from 'redux';
+import  reducerApp  from "./redux/reducer";
+import { Provider } from 'react-redux';
+
+const store = createStore(reducerApp);
+
 const mountNode = document.getElementById('root');
 ReactDOM.render(
+  <Provider store={store}>
   <CookiesProvider>
     <App />
-    </CookiesProvider>,
+    </CookiesProvider>
+    </Provider>,
   mountNode
 );
 
